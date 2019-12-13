@@ -3,7 +3,6 @@ class CreatePositions < ActiveRecord::Migration[6.0]
     create_table :positions do |t|
       t.string :post
 
-      t.timestamps
     end
   end
 end
