@@ -12,10 +12,17 @@ class UsersController < ApplicationController
     end
   end
   def gen_token(payload)
-    password = 'CRM_SYSTEM'
-    JWT.encode payload, password, 'none'
+    secret = 'CRM_SYSTEM'
+    JWT.encode payload,secret,'HS256'
   end
   def gen_hash(password)
     BCrypt::Password.create(password)
+  end
+  def check
+    secret = 'CRM_SYSTEM'
+    HashWithIndifferentAccess.new(JWT.decode params[:token], secret, false, {algorithm: 'HS256'})
+    render plain: 'ok'
+  rescue
+    render plain:'not ok'
   end
 end

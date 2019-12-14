@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :thirdName
       t.date :date
       t.string :access
+      t.references :positions
 
     end
   end

@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_12_13_180007) do
     t.string "thirdName"
     t.date "date"
     t.string "access"
+    t.bigint "positions_id"
+    t.index ["positions_id"], name: "index_users_on_positions_id"
   end
 
 end
