@@ -10,13 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_13_180007) do
+ActiveRecord::Schema.define(version: 2019_12_15_163458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
+    t.string "thirdName"
+    t.string "phone"
+    t.bigint "companies_id"
+    t.index ["companies_id"], name: "index_clients_on_companies_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+  end
+
   create_table "positions", force: :cascade do |t|
     t.string "post"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.string "description"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "description"
+    t.date "beginning"
+    t.date "deadline"
+    t.date "finished"
+    t.string "conclusion"
+    t.bigint "result_id"
+    t.bigint "users_id"
+    t.bigint "clients_id"
+    t.index ["clients_id"], name: "index_tasks_on_clients_id"
+    t.index ["result_id"], name: "index_tasks_on_result_id"
+    t.index ["users_id"], name: "index_tasks_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|

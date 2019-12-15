@@ -25,4 +25,17 @@ class UsersController < ApplicationController
   rescue
     render plain:'not ok'
   end
+  def profile
+    secret = 'CRM_SYSTEM'
+    str = request.headers['Authorization']
+    id = JWT.decode str, secret, false, {algorithm: 'HS256'}
+    @user = User.find_by_id(id)
+    render json: {
+        firstName:@user.firstName,
+        secondName:@user.secondName,
+        thirdName:@user.thirdName,
+        date:@user.date,
+        access:@user.access
+    }
+  end
 end
