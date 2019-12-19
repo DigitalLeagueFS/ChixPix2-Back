@@ -18,12 +18,14 @@ class UsersController < ApplicationController
   private def gen_hash(password)
     BCrypt::Password.create(password)
   end
-  def profile
+  private def token_id
     secret = 'CRM_SYSTEM'
     str = request.headers['Authorization']
-    id = JWT.decode str, secret, false, {algorithm: 'HS256'}
+    JWT.decode str, secret, false, {algorithm: 'HS256'}
+  end
+  def profile
+    id = token_id
     @user = User.includes(:position).find_by_id(id)
-    puts @user.attributes
     render json: {
         firstName:@user.firstName,
         secondName:@user.secondName,
