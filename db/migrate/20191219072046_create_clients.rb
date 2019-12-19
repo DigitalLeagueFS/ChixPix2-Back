@@ -5,8 +5,10 @@ class CreateClients < ActiveRecord::Migration[6.0]
       t.string :surname
       t.string :thirdName
       t.string :phone
+      t.date :date
+      t.references :company, null: false, foreign_key: true
 
-      t.references :companies
+      t.timestamps
     end
   end
 end

@@ -3,6 +3,7 @@ class CreateResults < ActiveRecord::Migration[6.0]
     create_table :results do |t|
       t.string :description
 
+      t.timestamps
     end
   end
 end

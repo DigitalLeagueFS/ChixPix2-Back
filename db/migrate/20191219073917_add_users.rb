@@ -1,5 +1,5 @@
 class AddUsers < ActiveRecord::Migration[6.0]
-  def self.up
+  def change
     User.create(
         :login=>'admin',
         :password=>BCrypt::Password.create('admin'),
@@ -7,8 +7,8 @@ class AddUsers < ActiveRecord::Migration[6.0]
         :secondName=> 'Sevostyanov',
         :thirdName=> 'Romanovich',
         :date=> '1999-06-01',
-        :access=> 'high',
-        :positions_id=>2
+        :access=> 1,
+        :position_id=>2
     ).save
     User.create(
         :login=>'gekas',
@@ -17,8 +17,8 @@ class AddUsers < ActiveRecord::Migration[6.0]
         :secondName=> 'Ponomarev',
         :thirdName=> 'Konstantinovich',
         :date=> '1999-12-23',
-        :access=> 'high',
-        :positions_id=>2
+        :access=> 1,
+        :position_id=>2
 
     ).save
     User.create(
@@ -28,8 +28,8 @@ class AddUsers < ActiveRecord::Migration[6.0]
         :secondName=> 'Burenin',
         :thirdName=> 'Olegovich',
         :date=> '1999-07-09',
-        :access=> 'high',
-        :positions_id=>2
+        :access=> 1,
+        :position_id=>2
     ).save
   end
 end
