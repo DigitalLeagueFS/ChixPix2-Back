@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 2019_12_19_181919) do
     t.string "firstName"
     t.string "secondName"
     t.string "thirdName"
-    t.date "date"
     t.integer "access"
+    t.date "date"
     t.bigint "position_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

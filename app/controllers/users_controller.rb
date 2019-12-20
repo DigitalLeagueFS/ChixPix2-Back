@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
   def profile
     id = token_id
-    @user = User.includes(:position).find_by_id(id)
+    @user = User.joins(:position).select('firstName','secondName','thirdName','date','access','post').find_by_id(id)
     render json: {
         firstName:@user.firstName,
         secondName:@user.secondName,
