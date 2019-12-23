@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 2019_12_19_181919) do
     t.string "desc"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "text"
+    t.string "img"
+    t.string "link"
   end
 
   create_table "positions", force: :cascade do |t|

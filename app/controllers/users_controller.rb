@@ -31,7 +31,8 @@ class UsersController < ApplicationController
         secondName:@user.secondName,
         thirdName:@user.thirdName,
         date:@user.date,
-        access:@user.access
+        access:@user.access,
+        post:@user.post
     }
   end
 end
