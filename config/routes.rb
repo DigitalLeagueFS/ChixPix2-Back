@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/check', to: 'users#check', as: 'check'
   get '/user', to: 'users#profile', as: 'user'
   get '/companies', to: 'companies#showAllCompanies', as: 'com'
+  get '/clients', to: 'clients#showClients', as: 'cl'
 end

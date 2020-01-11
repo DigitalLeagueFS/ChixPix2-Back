@@ -6,6 +6,7 @@ class CreateClients < ActiveRecord::Migration[6.0]
       t.string :thirdName
       t.string :phone
       t.date :date
+      t.string :link
       t.references :company, null: false, foreign_key: true
 
       t.timestamps
