@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/companies', to: 'companies#showAllCompanies', as: 'com'
   get '/clients', to: 'clients#showClients', as: 'cl'
   get '/getClient/:id',to: 'clients#getClient', as:'clIn'
+  get '/getcompaniesname', to: 'companies#getCompaniesName', as:'cgetCompName'
 end
