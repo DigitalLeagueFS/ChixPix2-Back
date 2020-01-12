@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/user', to: 'users#profile', as: 'user'
   get '/companies', to: 'companies#showAllCompanies', as: 'com'
   get '/clients', to: 'clients#showClients', as: 'cl'
+  get '/getClient/:id',to: 'clients#getClient', as:'clIn'
 end
