@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/clients', to: 'clients#showClients', as: 'cl'
   get '/getClient/:id',to: 'clients#getClient', as:'clIn'
   get '/getcompaniesname', to: 'companies#getCompaniesName', as:'cgetCompName'
+  delete '/deleteclient/:id', to: 'clients#deleteClients', as:'dc'
+  put '/changeinfo/:id', to: 'clients#changeInfo', as: 'cI'
 end

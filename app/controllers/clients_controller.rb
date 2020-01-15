@@ -25,4 +25,13 @@ class ClientsController < ApplicationController
     @client = Client.joins(:company).select('name','surname','thirdName','phone','date','link','company_name').find(params[:id])
     render json: @client.as_json
   end
+  def deleteClients
+    @client = Client.delete(params[:id])
+    puts @client
+  end
+
+  def changeInfo
+    @client = Client.update(params[:id],:name => params[:name], :surname => params[:surname], :thirdName => params[:thirdName], :phone => params[:phone])
+    puts @client
+  end
 end
