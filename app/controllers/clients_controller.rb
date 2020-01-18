@@ -1,11 +1,11 @@
+require 'json'
 class ClientsController < ApplicationController
   def showClients
     @client = Client.joins(:company).select('id','name','surname','thirdName','phone','date','link','company_name').all
     render json: @client.as_json
   end
   def addClients
-    puts params[:body]
-    @company = Company.find_by_company_name(params[:clickedCompany])
+    @company = Company.find_by_company_name(params[:clickedCompany][:company_name])
     @client = Client.create(
         :name=>params[:name],
         :surname=>params[:surname],
@@ -27,7 +27,7 @@ class ClientsController < ApplicationController
   end
   def deleteClients
     @client = Client.delete(params[:id])
-    puts @client
+    render json: {status:'ok'}, status: 200
   end
 
   def changeInfo
