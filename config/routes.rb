@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/getcompaniesname', to: 'companies#getCompaniesName', as:'cgetCompName'
   delete '/deleteUser/:id', to: 'clients#deleteClients', as:'dc'
   put '/changeinfo/:id', to: 'clients#changeInfo', as: 'cI'
+  delete '/deleteCompanies/:company_name', to: 'companies#deleteCompanies', as: 'dC'
 end
