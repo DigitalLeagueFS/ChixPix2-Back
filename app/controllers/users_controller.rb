@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     str = request.headers['Authorization']
     JWT.decode str, secret, false, {algorithm: 'HS256'}
   end
-  def profile
+  def show
     id = token_id
     @user = User.joins(:position).select('firstName','secondName','thirdName','date','access','post').find_by_id(id)
     render json: {
