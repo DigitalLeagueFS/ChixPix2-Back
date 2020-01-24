@@ -8,7 +8,7 @@ class CreateClients < ActiveRecord::Migration[6.0]
       t.date :date
       t.string :link
       t.references :company, null: true , foreign_key: true, on_delete: :cascade
-
+      t.references :company, null: true, foreign_key: true
       t.timestamps
     end
   end
