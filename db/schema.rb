@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_12_19_181918) do
   end
 
   create_table "tasks", force: :cascade do |t|
+    t.string "name"
     t.string "description"
     t.date "beginning"
     t.date "deadline"

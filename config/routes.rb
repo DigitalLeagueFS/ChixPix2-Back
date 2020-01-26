@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   delete '/clients/:id', to: 'clients#delete', as:'dc'
   delete '/companies/:id', to: 'companies#delete', as:'dlc'
   post '/companies', to: 'companies#create',as:'crc'
+  get '/tasks', to: 'tasks#show', as:'sht'
 end
