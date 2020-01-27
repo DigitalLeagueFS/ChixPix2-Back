@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 2019_12_19_181918) do
   enable_extension "plpgsql"
 
   create_table "clients", force: :cascade do |t|
-    t.string "name"
-    t.string "surname"
-    t.string "thirdName"
-    t.string "phone"
-    t.date "date"
+    t.string "client_name"
+    t.string "client_surname"
+    t.string "client_thirdname"
+    t.string "client_phone"
+    t.date "client_date"
     t.string "link"
     t.bigint "company_id"
     t.datetime "created_at", precision: 6, null: false
@@ -70,11 +70,11 @@ ActiveRecord::Schema.define(version: 2019_12_19_181918) do
   create_table "users", force: :cascade do |t|
     t.string "login"
     t.string "password"
-    t.string "firstName"
-    t.string "secondName"
-    t.string "thirdName"
+    t.string "user_firstname"
+    t.string "user_secondname"
+    t.string "user_thirdname"
     t.integer "access"
-    t.date "date"
+    t.date "user_date"
     t.bigint "position_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -23,7 +23,6 @@ class CompaniesController < ApplicationController
         :text=>params[:description],
         :img=>params[:photoLink]
     )
-    puts @com
     @com.save
     render json:@com.as_json
   end

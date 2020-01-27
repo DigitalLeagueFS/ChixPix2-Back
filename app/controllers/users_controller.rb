@@ -25,12 +25,16 @@ class UsersController < ApplicationController
   end
   def show
     id = token_id
-    @user = User.joins(:position).select('firstName','secondName','thirdName','date','access','post').find_by_id(id)
+    @user = User.joins(:position).select('user_firstname',
+                                         'user_secondname',
+                                         'user_thirdname',
+                                         'user_date',
+                                         'access','post').find_by_id(id)
     render json: {
-        firstName:@user.firstName,
-        secondName:@user.secondName,
-        thirdName:@user.thirdName,
-        date:@user.date,
+        firstName:@user.user_firstname,
+        secondName:@user.user_secondname,
+        thirdName:@user.user_thirdname,
+        date:@user.user_date,
         access:@user.access,
         post:@user.post
     }

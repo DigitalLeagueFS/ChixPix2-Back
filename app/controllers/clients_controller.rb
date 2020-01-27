@@ -1,17 +1,24 @@
 require 'json'
 class ClientsController < ApplicationController
   def show
-    @client = Client.joins(:company).select('id','name','surname','thirdName','phone','date','link','company_name').all
+    @client = Client.joins(:company).select('id',
+                                            'client_name',
+                                            'client_surname',
+                                            'client_thirdname',
+                                            'client_phone',
+                                            'client_date',
+                                            'link',
+                                            'company_name').all
     render json: @client.as_json
   end
   def create
     @company = Company.find_by_company_name(params[:clickedCompany][:company_name])
     @client = Client.create(
-        :name=>params[:name],
-        :surname=>params[:surname],
-        :thirdName=>params[:thirdName],
-        :phone=>params[:phone],
-        :date=>params[:date],
+        :client_name=>params[:name],
+        :client_surname=>params[:surname],
+        :client_thirdname=>params[:thirdName],
+        :client_phone=>params[:phone],
+        :client_date=>params[:date],
         :link=>params[:link],
         :company_id=>@company.id
     )
@@ -22,7 +29,13 @@ class ClientsController < ApplicationController
     end
   end
   def show_client
-    @client = Client.joins(:company).select('name','surname','thirdName','phone','date','link','company_name').find(params[:id])
+    @client = Client.joins(:company).select('client_name',
+                                            'client_surname',
+                                            'client_thirdname',
+                                            'client_phone',
+                                            'client_date',
+                                            'link',
+                                            'company_name').find(params[:id])
     render json: @client.as_json
   end
   def delete
