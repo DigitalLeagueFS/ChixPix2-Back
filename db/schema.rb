@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_12_19_181918) do
   end
 
   create_table "results", force: :cascade do |t|
-    t.string "description"
+    t.string "result_description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

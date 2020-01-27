@@ -5,39 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create([
-            {
-                 :login=>'admin',
-                 :password=>BCrypt::Password.create('admin'),
-                 :firstName=> 'Dmitry',
-                 :secondName=> 'Sevostyanov',
-                 :thirdName=> 'Romanovich',
-                 :date=> '1999-06-01',
-                 :access=> 1,
-                 :position_id=>2
-            },
 
-            {
-                :login=>'gekas',
-                :password=>BCrypt::Password.create('qwerty'),
-                :firstName=> 'Evgeny',
-                :secondName=> 'Ponomarev',
-                :thirdName=> 'Konstantinovich',
-                :date=> '1999-12-23',
-                :access=> 1,
-                :position_id=>2
-            },
-
-            {
-                :login=>'sasha',
-                :password=>BCrypt::Password.create('12345'),
-                :firstName=> 'Alexandr',
-                :secondName=> 'Burenin',
-                :thirdName=> 'Olegovich',
-                :date=> '1999-07-09',
-                :access=> 1,
-                :position_id=>2
-            }])
 Company.create([
                    {
                        :company_name=>'DigitalLeague',
@@ -184,9 +152,48 @@ Client.create([
                   }
               ])
 
+
 Position.create([{:post=>'Worker'},{:post=>'Manager'}])
 
-Result.create([{:description=>'Not ready'},{:description=>'Failed'},{:description=>'Done'},{:description=>'Cancelled'}])
+User.create([
+                {
+                    :login=>'admin',
+                    :password=>BCrypt::Password.create('admin'),
+                    :firstName=> 'Dmitry',
+                    :secondName=> 'Sevostyanov',
+                    :thirdName=> 'Romanovich',
+                    :date=> '1999-06-01',
+                    :access=> 1,
+                    :position_id=>2
+                },
+
+                {
+                    :login=>'gekas',
+                    :password=>BCrypt::Password.create('qwerty'),
+                    :firstName=> 'Evgeny',
+                    :secondName=> 'Ponomarev',
+                    :thirdName=> 'Konstantinovich',
+                    :date=> '1999-12-23',
+                    :access=> 1,
+                    :position_id=>2
+                },
+
+                {
+                    :login=>'sasha',
+                    :password=>BCrypt::Password.create('12345'),
+                    :firstName=> 'Alexandr',
+                    :secondName=> 'Burenin',
+                    :thirdName=> 'Olegovich',
+                    :date=> '1999-07-09',
+                    :access=> 1,
+                    :position_id=>2
+                }])
+
+Result.create([
+                  {:result_description=>'Not ready'},
+                  {:result_description=>'Failed'},
+                  {:result_description=>'Done'},
+                  {:result_description=>'Cancelled'}])
 
 Task.create([
                 {
