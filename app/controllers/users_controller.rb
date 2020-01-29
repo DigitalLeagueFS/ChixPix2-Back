@@ -39,4 +39,9 @@ class UsersController < ApplicationController
         post:@user.post
     }
   end
+  def show_name
+    id = token_id
+    @user = User.find_by_id(id)
+    render json: {name:@user.user_firstname}
+  end
 end

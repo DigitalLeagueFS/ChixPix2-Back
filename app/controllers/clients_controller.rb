@@ -38,6 +38,10 @@ class ClientsController < ApplicationController
                                             'company_name').find(params[:id])
     render json: @client.as_json
   end
+  def show_name
+    @clients = Client.select('id,client_name,client_surname').all
+    render json: @clients.as_json
+  end
   def delete
     @client = Client.delete(params[:id])
     render json: {status:'ok'}, status: 200
