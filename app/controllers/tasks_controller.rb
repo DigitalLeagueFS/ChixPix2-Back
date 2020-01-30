@@ -48,4 +48,10 @@ class TasksController < ApplicationController
     render json: {task:@task.as_json,result_description:'Not ready'}
     @task.save!
   end
+  def user_tasks
+    id = token_id[0]
+    @send_task = Task.left_outer_joins(:result).select('id','name','deadline','user_id','result_description')
+        .where(user_id:id).all
+    render json:@send_task.as_json
+  end
 end

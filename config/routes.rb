@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/clients/:id',to: 'clients#show_client', as:'clIn'
   get '/companies/name', to: 'companies#show_name', as:'cgetCompName'
   get '/tasks', to: 'tasks#show', as:'sht'
+  get '/tasks/user',to: 'tasks#user_tasks',as:'ust'
   get '/tasks/:id', to: 'tasks#show_task', as:'sto'
   delete '/clients/:id', to: 'clients#delete', as:'dc'
   delete '/companies/:id', to: 'companies#delete', as:'dlc'
