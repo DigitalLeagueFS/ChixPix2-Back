@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   put '/login' , to: 'users#login', as: 'ex_user'
   post '/clients' , to: 'clients#create', as: 'cladd'
+  post '/companies', to: 'companies#create',as:'crc'
+  post '/tasks',to:'tasks#create', as:'crt'
   get '/check', to: 'users#check', as: 'check'
   get '/user', to: 'users#show', as: 'user'
   get '/users/name', to: 'users#show_name',as: 'sh_n'
@@ -11,11 +13,11 @@ Rails.application.routes.draw do
   get '/companies/name', to: 'companies#show_name', as:'cgetCompName'
   get '/tasks', to: 'tasks#show', as:'sht'
   get '/tasks/user',to: 'tasks#user_tasks',as:'ust'
+  get '/tasks/archive',to:'tasks#archive', as:'arch'
   get '/tasks/:id', to: 'tasks#show_task', as:'sto'
   delete '/clients/:id', to: 'clients#delete', as:'dc'
   delete '/companies/:id', to: 'companies#delete', as:'dlc'
-  post '/companies', to: 'companies#create',as:'crc'
   delete '/tasks/:id',to: 'tasks#delete', as:'dlt'
   put '/tasks/:id', to:'tasks#take', as:'ttsk'
-  post '/tasks',to:'tasks#create', as:'crt'
+  put '/tasks/complete/:id',to:'tasks#complete',as:'cts'
 end

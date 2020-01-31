@@ -7,15 +7,13 @@ class TasksController < ApplicationController
   def show
     @tasks = Task.all
     @tasks.each do |elem|
-      if elem.deadline > Date.current
-        Task.update(elem.id,:result_id=>1)
-      else
-        Task.update(elem.id,:result_id=>2)
+      if elem.deadline < Date.current
+        Task.update(elem.id,result_id:2)
       end
     end
     @send_task = Task.left_outer_joins(:result,:user).select('id','name','deadline','user_id','result_description',
                                                              'user_firstname')
-        .where.not(result_id: 2)
+        .where.not(result_id: [2,3,4])
     render json: @send_task.as_json
   end
   def show_task
@@ -51,7 +49,17 @@ class TasksController < ApplicationController
   def user_tasks
     id = token_id[0]
     @send_task = Task.left_outer_joins(:result).select('id','name','deadline','user_id','result_description')
-        .where(user_id:id).all
+        .where(user_id:id,result_id:1).all
     render json:@send_task.as_json
+  end
+  def complete
+    @task = Task.update(params[:id],result_id:3)
+    render json: @task.as_json
+  end
+  def archive
+    @send_task = Task.left_outer_joins(:result,:user).select('id','name','deadline','user_id','result_description',
+                                                             'user_firstname')
+                     .where.not(result_id: 1)
+    render json: @send_task.as_json
   end
 end
