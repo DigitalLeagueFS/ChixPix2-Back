@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/tasks/user',to: 'tasks#user_tasks',as:'ust'
   get '/tasks/archive',to:'tasks#archive', as:'arch'
   get '/tasks/:id', to: 'tasks#show_task', as:'sto'
+  get '/posts/name', to: 'users#show_post', as: 'sh_p'
   delete '/clients/:id', to: 'clients#delete', as:'dc'
   delete '/companies/:id', to: 'companies#delete', as:'dlc'
   delete '/tasks/:id',to: 'tasks#delete', as:'dlt'

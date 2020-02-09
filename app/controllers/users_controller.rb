@@ -44,4 +44,8 @@ class UsersController < ApplicationController
     @user = User.find_by_id(id)
     render json: {name:@user.user_firstname}
   end
+  def show_post
+    @pos = Position.select('post').all
+    render json: @pos.as_json
+  end
 end

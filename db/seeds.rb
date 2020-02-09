@@ -205,7 +205,7 @@ Task.create([
                     :finished=>nil,
                     :user_id=>nil,
                     :report=>nil,
-                    :result_id=>nil,
+                    :result_id=>1,
                     :client_id=>9
                 },
                 {
@@ -218,7 +218,7 @@ Task.create([
                     :report=>nil,
                     :client_id=>5,
                     :user_id=>nil,
-                    :result_id=>nil
+                    :result_id=>1
                 },
                 {
                     :name=>'Pet a cat',
@@ -229,7 +229,7 @@ Task.create([
                     :finished=>nil,
                     :user_id=>nil,
                     :report=>nil,
-                    :result_id=>nil,
+                    :result_id=>1,
                     :client_id=>2
                 },
                 {:name=>'Call mom',
@@ -240,7 +240,7 @@ Task.create([
                  :finished=>nil,
                  :user_id=>nil,
                  :report=>nil,
-                 :result_id=>nil,
+                 :result_id=>1,
                  :client_id=>4
                 },
                 {
@@ -252,7 +252,7 @@ Task.create([
                     :report=>nil,
                     :finished=>nil,
                     :user_id=>nil,
-                    :result_id=>nil,
+                    :result_id=>1,
                     :client_id=>7
                 }
             ])
