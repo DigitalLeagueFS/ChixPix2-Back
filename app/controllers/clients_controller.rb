@@ -43,7 +43,8 @@ class ClientsController < ApplicationController
     render json: @clients.as_json
   end
   def delete
-    @client = Client.delete(params[:id])
+    @client = Client.find(params[:id])
+    @client.destroy
     render json: {status:'ok'}, status: 200
   end
 end

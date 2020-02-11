@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   delete '/tasks/:id',to: 'tasks#delete', as:'dlt'
   put '/tasks/:id', to:'tasks#take', as:'ttsk'
   put '/tasks/complete/:id',to:'tasks#complete',as:'cts'
+  post '/users',to:'users#create',as:'cru'
 end

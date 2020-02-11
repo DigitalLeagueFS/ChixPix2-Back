@@ -1,16 +1,4 @@
 class UsersController < ApplicationController
-  def login
-    @user = User.find_by_login(params[:login])
-    if @user
-      if BCrypt::Password.new(@user.password) == params[:password]
-        render plain: gen_token(@user.id)
-      else
-        render plain: 'incorrect password'
-      end
-    else
-      render plain: 'incorrect data'
-    end
-  end
   private def gen_token(payload)
     secret = 'CRM_SYSTEM'
     JWT.encode payload,secret,'HS256'
@@ -22,6 +10,18 @@ class UsersController < ApplicationController
     secret = 'CRM_SYSTEM'
     str = request.headers['Authorization']
     JWT.decode str, secret, false, {algorithm: 'HS256'}
+  end
+  def login
+    @user = User.find_by_login(params[:login])
+    if @user
+      if BCrypt::Password.new(@user.password) == params[:password]
+        render plain: gen_token(@user.id)
+      else
+        render plain: 'incorrect password'
+      end
+    else
+      render plain: 'incorrect data'
+    end
   end
   def show
     id = token_id
@@ -47,5 +47,20 @@ class UsersController < ApplicationController
   def show_post
     @pos = Position.select('post').all
     render json: @pos.as_json
+  end
+  def create
+    puts params
+    @post = Position.find_by_post(params[:clickedPost][:post])
+    @user = User.create(
+        login:params[:login],
+        password:BCrypt::Password.create(params[:password]),
+        user_firstname:params[:name],
+        user_secondname:params[:surname],
+        user_thirdname:params[:thirdName],
+        user_date:params[:date],
+        access:0,
+        position_id:@post.id
+    )
+     render json: @user.as_json
   end
 end
