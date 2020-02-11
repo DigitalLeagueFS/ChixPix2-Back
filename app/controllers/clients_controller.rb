@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
     render json: @client.as_json
   end
   def create
-    @company = Company.find_by_company_name(params[:clickedCompany][:company_name])
+    @company = Company.find_by_company_name(params[:clickedCompany])
     @client = Client.create(
         :client_name=>params[:name],
         :client_surname=>params[:surname],
