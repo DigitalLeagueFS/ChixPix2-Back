@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :user_firstname
       t.string :user_secondname
       t.string :user_thirdname
-      t.integer :access
       t.date :user_date
       t.references :position, null: false, foreign_key: true
 

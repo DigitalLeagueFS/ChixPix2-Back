@@ -163,7 +163,6 @@ User.create([
                     :user_secondname=> 'Sevostyanov',
                     :user_thirdname=> 'Romanovich',
                     :user_date=> '1999-06-01',
-                    :access=> 1,
                     :position_id=>2
                 },
 
@@ -174,7 +173,6 @@ User.create([
                     :user_secondname=> 'Ponomarev',
                     :user_thirdname=> 'Konstantinovich',
                     :user_date=> '1999-12-23',
-                    :access=> 1,
                     :position_id=>2
                 },
 
@@ -185,7 +183,6 @@ User.create([
                     :user_secondname=> 'Burenin',
                     :user_thirdname=> 'Olegovich',
                     :user_date=> '1999-07-09',
-                    :access=> 1,
                     :position_id=>2
                 }])
 
@@ -204,7 +201,6 @@ Task.create([
                     :deadline=>'2020-02-25',
                     :finished=>nil,
                     :user_id=>nil,
-                    :report=>nil,
                     :result_id=>1,
                     :client_id=>9
                 },
@@ -215,7 +211,6 @@ Task.create([
                     :beginning=>'2020-01-25',
                     :deadline=>'2020-02-25',
                     :finished=>nil,
-                    :report=>nil,
                     :client_id=>5,
                     :user_id=>nil,
                     :result_id=>1
@@ -228,7 +223,6 @@ Task.create([
                     :deadline=>'2020-01-29',
                     :finished=>nil,
                     :user_id=>nil,
-                    :report=>nil,
                     :result_id=>1,
                     :client_id=>2
                 },
@@ -239,7 +233,6 @@ Task.create([
                  :deadline=>'2020-03-26',
                  :finished=>nil,
                  :user_id=>nil,
-                 :report=>nil,
                  :result_id=>1,
                  :client_id=>4
                 },
@@ -249,7 +242,6 @@ Task.create([
     Donec aliquet magna tempus, malesuada magna non, pellentesque ligula. Curabitur congue mattis nisi ut pellentesque.',
                     :beginning=>'2020-01-25',
                     :deadline=>'2020-02-25',
-                    :report=>nil,
                     :finished=>nil,
                     :user_id=>nil,
                     :result_id=>1,

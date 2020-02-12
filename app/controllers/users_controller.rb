@@ -29,13 +29,12 @@ class UsersController < ApplicationController
                                          'user_secondname',
                                          'user_thirdname',
                                          'user_date',
-                                         'access','post').find_by_id(id)
+                                         'post').find_by_id(id)
     render json: {
         firstName:@user.user_firstname,
         secondName:@user.user_secondname,
         thirdName:@user.user_thirdname,
         date:@user.user_date,
-        access:@user.access,
         post:@user.post
     }
   end
@@ -58,7 +57,6 @@ class UsersController < ApplicationController
         user_secondname:params[:surname],
         user_thirdname:params[:thirdName],
         user_date:params[:date],
-        access:0,
         position_id:@post.id
     )
      render json: @user.as_json

@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2019_12_19_181918) do
     t.date "beginning"
     t.date "deadline"
     t.date "finished"
-    t.string "report"
     t.bigint "client_id", null: false
     t.bigint "user_id"
     t.bigint "result_id"
@@ -73,7 +72,6 @@ ActiveRecord::Schema.define(version: 2019_12_19_181918) do
     t.string "user_firstname"
     t.string "user_secondname"
     t.string "user_thirdname"
-    t.integer "access"
     t.date "user_date"
     t.bigint "position_id", null: false
     t.datetime "created_at", precision: 6, null: false
